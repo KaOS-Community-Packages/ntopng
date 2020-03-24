@@ -1,0 +1,13 @@
+[Unit]
+Description=ntopng network traffic monitor
+Documentation=man:ntopng(8)
+Requires=redis.service
+Conflicts=ntop.service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ntopng -i %I
+
+[Install]
+WantedBy=multi-user.target
